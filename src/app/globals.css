@@ -1,26 +1,141 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --surface: #ffffff;
+  --text-primary: #1a1a2e;
+  --text-secondary: #64748b;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --accent-light: #818cf8;
+  --accent-gradient-from: #6366f1;
+  --accent-gradient-to: #8b5cf6;
+  --subtle-bg: #f0f0ff;
+  --border: #e2e8f0;
+  --skill-bar-bg: #e2e8f0;
+}
+
+.dark {
+  --background: #0f0f1a;
+  --surface: #1a1a2e;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #818cf8;
+  --accent-hover: #6366f1;
+  --accent-light: #a78bfa;
+  --accent-gradient-from: #818cf8;
+  --accent-gradient-to: #a78bfa;
+  --subtle-bg: #151528;
+  --border: #2d2d4a;
+  --skill-bar-bg: #2d2d4a;
 }
 
 @theme inline {
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-light: var(--accent-light);
+  --color-accent-gradient-from: var(--accent-gradient-from);
+  --color-accent-gradient-to: var(--accent-gradient-to);
+  --color-subtle-bg: var(--subtle-bg);
+  --color-border: var(--border);
+  --color-skill-bar-bg: var(--skill-bar-bg);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+
+/* Layout containers — unlayered CSS to override Tailwind v4 layer resets */
+.container-section {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container-section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.container-nav {
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+@media (min-width: 768px) {
+  .container-nav {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+.section-padding {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.grid-two-col {
+  display: grid;
+  gap: 4rem;
+}
+
+@media (min-width: 768px) {
+  .grid-two-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.grid-three-col {
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .grid-three-col {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-three-col {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

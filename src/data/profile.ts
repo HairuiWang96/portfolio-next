@@ -1,0 +1,30 @@
+export const profile = {
+  name: "Hairui Wang",
+  title: "Full Stack Developer",
+  bio: "I'm a creative full-stack developer with over 11 years of experience in IT and data analysis. I specialize in building modern web applications using React, Next.js, and Node.js. Currently leading development at Gophr App, creating microservices-based solutions that connect local businesses with their communities.",
+  email: "wanghairuinmg@gmail.com",
+  phone: "+1 (337)-853-3836",
+  location: "Lake Charles, LA 70605, US",
+  website: "www.hairui-wang.com",
+  social: {
+    linkedin: "https://www.linkedin.com/in/hairui-wang/",
+    github: "https://github.com/HairuiWang96",
+    facebook: "https://www.facebook.com/hairui.wang.9",
+  },
+  skills: [
+    { name: "JavaScript", level: 95 },
+    { name: "React.js", level: 90 },
+    { name: "Node.js", level: 95 },
+    { name: "Next.js", level: 85 },
+    { name: "PostgreSQL", level: 80 },
+    { name: "React Native", level: 75 },
+  ],
+  techStack: {
+    Frontend: ["React.js", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "Ant Design"],
+    Backend: ["Node.js", "Express.js", "RESTful APIs", "GraphQL", "Firebase"],
+    Mobile: ["React Native"],
+    Database: ["PostgreSQL", "Oracle"],
+    Cloud: ["AWS", "GCP", "Vercel"],
+    Tools: ["Git", "Vim", "npm", "VSCode"],
+  },
+};
