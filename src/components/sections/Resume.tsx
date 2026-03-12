@@ -21,8 +21,8 @@ export function Resume() {
           {/* Experience */}
           <div>
             <AnimatedSection delay={0.2}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+              <div className="timeline-header">
+                <div className="icon-circle bg-accent/10">
                   <Briefcase className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-text-primary">
@@ -31,28 +31,28 @@ export function Resume() {
               </div>
             </AnimatedSection>
 
-            <div className="relative border-l-2 border-border pl-8 ml-2 space-y-12">
+            <div className="timeline">
               {experience.map((item, i) => (
                 <AnimatedSection key={i} delay={0.3 + i * 0.15}>
-                  <div className="relative">
-                    {/* Timeline dot */}
-                    <div className="absolute -left-[2.55rem] top-1 w-4 h-4 rounded-full bg-accent border-4 border-background" />
-
-                    <p className="text-sm text-accent font-medium mb-1">
+                  <div className="timeline-item">
+                    <div className="timeline-dot" />
+                    <p className="text-sm text-accent font-medium" style={{ marginBottom: '0.25rem' }}>
                       {item.period}
                     </p>
                     <h4 className="text-lg font-semibold text-text-primary">
                       {item.title}
                     </h4>
-                    <p className="text-text-secondary text-sm mb-3">
+                    <p className="text-text-secondary text-sm" style={{ marginBottom: '0.75rem' }}>
                       {item.company}
                     </p>
-                    <ul className="space-y-2">
+                    <ul>
                       {item.description.map((desc, j) => (
                         <li
                           key={j}
-                          className="text-text-secondary text-sm leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:rounded-full before:bg-accent/40"
+                          className="text-text-secondary text-sm leading-relaxed"
+                          style={{ paddingLeft: '1rem', position: 'relative', marginBottom: '0.5rem' }}
                         >
+                          <span style={{ position: 'absolute', left: 0, top: '0.5rem', width: '0.375rem', height: '0.375rem', borderRadius: '9999px', backgroundColor: 'rgba(99, 102, 241, 0.4)' }} />
                           {desc}
                         </li>
                       ))}
@@ -66,8 +66,8 @@ export function Resume() {
           {/* Education */}
           <div>
             <AnimatedSection delay={0.2}>
-              <div className="flex items-center gap-3 mb-8">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+              <div className="timeline-header">
+                <div className="icon-circle bg-accent/10">
                   <GraduationCap className="h-5 w-5 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold text-text-primary">
@@ -76,19 +76,18 @@ export function Resume() {
               </div>
             </AnimatedSection>
 
-            <div className="relative border-l-2 border-border pl-8 ml-2 space-y-12">
+            <div className="timeline">
               {education.map((item, i) => (
                 <AnimatedSection key={i} delay={0.3 + i * 0.15}>
-                  <div className="relative">
-                    <div className="absolute -left-[2.55rem] top-1 w-4 h-4 rounded-full bg-accent border-4 border-background" />
-
-                    <p className="text-sm text-accent font-medium mb-1">
+                  <div className="timeline-item">
+                    <div className="timeline-dot" />
+                    <p className="text-sm text-accent font-medium" style={{ marginBottom: '0.25rem' }}>
                       {item.period}
                     </p>
                     <h4 className="text-lg font-semibold text-text-primary">
                       {item.degree}
                     </h4>
-                    <p className="text-text-secondary text-sm mb-1">
+                    <p className="text-text-secondary text-sm" style={{ marginBottom: '0.25rem' }}>
                       {item.school}
                     </p>
                     <p className="text-text-secondary text-sm">

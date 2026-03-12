@@ -6,18 +6,15 @@ import { profile } from "@/data/profile";
 
 export function Hero() {
   return (
-    <section
-      id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section id="hero" className="hero-wrapper">
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-subtle-bg to-background dark:from-background dark:via-surface dark:to-background" />
 
       {/* Decorative blobs */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-gradient-to/10 rounded-full blur-3xl" />
+      <div className="blob blob-left" />
+      <div className="blob blob-right" />
 
-      <div className="relative z-10 text-center px-6 max-w-4xl">
+      <div className="hero-content">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -42,7 +39,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-xl md:text-2xl text-text-secondary mb-8 font-light"
+          className="text-xl md:text-2xl text-text-secondary font-light"
+          style={{ marginBottom: '2rem' }}
         >
           {profile.title}
         </motion.p>
@@ -51,7 +49,8 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-text-secondary leading-relaxed"
+          style={{ maxWidth: '42rem', marginLeft: 'auto', marginRight: 'auto', marginBottom: '2.5rem' }}
         >
           {profile.bio}
         </motion.p>
@@ -60,17 +59,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1.0 }}
-          className="flex items-center justify-center gap-4 mb-12"
+          className="cta-buttons"
+          style={{ marginBottom: '2rem' }}
         >
           <a
             href="#contact"
-            className="px-8 py-3 bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent/25 transition-all"
+            className="bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent/25 transition-all"
+            style={{ padding: '0.75rem 2rem' }}
           >
             Get In Touch
           </a>
           <a
             href="#portfolio"
-            className="px-8 py-3 border border-border text-text-primary rounded-full font-medium hover:border-accent hover:text-accent transition-colors"
+            className="border border-border text-text-primary rounded-full font-medium hover:border-accent hover:text-accent transition-colors"
+            style={{ padding: '0.75rem 2rem' }}
           >
             View Work
           </a>
@@ -80,7 +82,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.2 }}
-          className="flex items-center justify-center gap-4"
+          className="social-row"
         >
           <a
             href={profile.social.github}
@@ -101,23 +103,28 @@ export function Hero() {
             <Linkedin className="h-5 w-5" />
           </a>
         </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-        >
-          <a href="#about" aria-label="Scroll down">
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowDown className="h-6 w-6 text-text-secondary" />
-            </motion.div>
-          </a>
-        </motion.div>
       </div>
+
+      {/* Scroll arrow — positioned relative to the full section, not hero-content */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.4 }}
+        className="scroll-arrow"
+      >
+        <a
+          href="#about"
+          aria-label="Scroll down"
+          className="icon-circle bg-accent text-white hover:bg-accent-hover transition-colors"
+        >
+          <motion.div
+            animate={{ y: [0, 4, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            <ArrowDown className="h-5 w-5" />
+          </motion.div>
+        </a>
+      </motion.div>
     </section>
   );
 }

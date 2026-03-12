@@ -55,9 +55,9 @@ export function Contact() {
         <div className="grid-two-col">
           {/* Contact info */}
           <AnimatedSection delay={0.2}>
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+            <div className="contact-info-list">
+              <div className="contact-info-item">
+                <div className="icon-circle bg-accent/10">
                   <Mail className="h-5 w-5 text-accent" />
                 </div>
                 <div>
@@ -70,8 +70,8 @@ export function Contact() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <div className="contact-info-item">
+                <div className="icon-circle bg-accent/10">
                   <Phone className="h-5 w-5 text-accent" />
                 </div>
                 <div>
@@ -79,8 +79,8 @@ export function Contact() {
                   <p className="text-text-secondary text-sm">{profile.phone}</p>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
+              <div className="contact-info-item">
+                <div className="icon-circle bg-accent/10">
                   <MapPin className="h-5 w-5 text-accent" />
                 </div>
                 <div>
@@ -93,21 +93,23 @@ export function Contact() {
 
           {/* Form */}
           <AnimatedSection delay={0.4}>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="form-stack">
+              <div className="form-row">
                 <input
                   type="text"
                   name="name"
                   placeholder="Your Name"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                  className="w-full rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                  style={{ padding: '0.75rem 1rem' }}
                 />
                 <input
                   type="email"
                   name="email"
                   placeholder="Your Email"
                   required
-                  className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                  className="w-full rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                  style={{ padding: '0.75rem 1rem' }}
                 />
               </div>
               <input
@@ -115,32 +117,35 @@ export function Contact() {
                 name="subject"
                 placeholder="Subject"
                 required
-                className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                className="w-full rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm"
+                style={{ padding: '0.75rem 1rem' }}
               />
               <textarea
                 name="message"
                 placeholder="Your Message"
                 required
                 rows={6}
-                className="w-full px-4 py-3 rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm resize-none"
+                className="w-full rounded-lg bg-surface border border-border text-text-primary placeholder:text-text-secondary/50 focus:outline-none focus:border-accent transition-colors text-sm resize-none"
+                style={{ padding: '0.75rem 1rem' }}
               />
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent/25 transition-all disabled:opacity-50 cursor-pointer"
+                className="bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full font-medium hover:shadow-lg hover:shadow-accent/25 transition-all disabled:opacity-50 cursor-pointer"
+                style={{ padding: '0.75rem 2rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', alignSelf: 'flex-start' }}
               >
                 <Send className="h-4 w-4" />
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
 
               {status === "sent" && (
-                <p className="text-green-600 dark:text-green-400 text-sm mt-2">
+                <p className="text-green-600 dark:text-green-400 text-sm">
                   Message sent successfully! I&apos;ll get back to you soon.
                 </p>
               )}
               {status === "error" && (
-                <p className="text-red-600 dark:text-red-400 text-sm mt-2">
+                <p className="text-red-600 dark:text-red-400 text-sm">
                   Something went wrong. Please try again or email me directly.
                 </p>
               )}

@@ -32,7 +32,8 @@ export function Portfolio() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`${project.isMobile ? "object-contain" : "object-cover"} transition-transform duration-500 group-hover:scale-105`}
+                  style={project.isMobile ? { padding: '0.5rem' } : undefined}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-left">
                   <p className="text-white font-semibold text-lg">
@@ -64,12 +65,13 @@ export function Portfolio() {
               className="bg-surface border border-border rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative aspect-video">
+              <div className={`relative ${selected.isMobile ? "aspect-[3/4]" : "aspect-video"}`}>
                 <Image
                   src={selected.modalImage}
                   alt={selected.title}
                   fill
-                  className="object-cover rounded-t-2xl"
+                  className={`${selected.isMobile ? "object-contain" : "object-cover"} rounded-t-2xl`}
+                  style={selected.isMobile ? { padding: '1rem' } : undefined}
                 />
                 <button
                   onClick={() => setSelected(null)}

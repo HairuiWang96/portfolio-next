@@ -18,11 +18,11 @@ export function About() {
           />
         </AnimatedSection>
 
-        <div className="grid-two-col items-start">
+        <div className="grid-two-col" style={{ alignItems: 'start' }}>
           {/* Left: Profile */}
           <AnimatedSection delay={0.2}>
-            <div className="flex flex-col items-center md:items-start gap-6">
-              <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-accent/20">
+            <div className="profile-col">
+              <div className="profile-pic">
                 <Image
                   src="/images/profile-pic-new.png"
                   alt="Hairui Wang"
@@ -33,14 +33,14 @@ export function About() {
               </div>
 
               <div>
-                <h3 className="text-xl font-semibold text-text-primary mb-4 text-center md:text-left">
+                <h3 className="text-xl font-semibold text-text-primary" style={{ marginBottom: '1rem' }}>
                   {profile.name}
                 </h3>
-                <p className="text-text-secondary leading-relaxed mb-6">
+                <p className="text-text-secondary leading-relaxed" style={{ marginBottom: '1.5rem' }}>
                   {profile.bio}
                 </p>
 
-                <div className="grid grid-cols-1 gap-3 text-sm text-text-secondary mb-6">
+                <div style={{ display: 'grid', gap: '0.75rem', marginBottom: '1.5rem' }} className="text-sm text-text-secondary">
                   <p>
                     <span className="font-medium text-text-primary">Email:</span>{" "}
                     {profile.email}
@@ -55,18 +55,20 @@ export function About() {
                   </p>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="btn-row">
                   <a
                     href="#contact"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all"
+                    className="flex-center bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-accent/25 transition-all"
+                    style={{ padding: '0.625rem 1.25rem', gap: '0.5rem', display: 'inline-flex' }}
                   >
                     <Mail className="h-4 w-4" />
                     Hire Me
                   </a>
                   <a
-                    href="/resume.pdf"
+                    href="/Resume--Hairui Wang.pdf"
                     target="_blank"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 border border-border text-text-primary rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+                    className="border border-border text-text-primary rounded-full text-sm font-medium hover:border-accent hover:text-accent transition-colors"
+                    style={{ padding: '0.625rem 1.25rem', gap: '0.5rem', display: 'inline-flex', alignItems: 'center' }}
                   >
                     <Download className="h-4 w-4" />
                     Download CV
@@ -79,7 +81,7 @@ export function About() {
           {/* Right: Skills + Tech Stack */}
           <AnimatedSection delay={0.4}>
             <div>
-              <h3 className="text-lg font-semibold text-text-primary mb-6">
+              <h3 className="text-lg font-semibold text-text-primary" style={{ marginBottom: '1.5rem' }}>
                 Skills
               </h3>
               {profile.skills.map((skill, i) => (
@@ -91,20 +93,21 @@ export function About() {
                 />
               ))}
 
-              <h3 className="text-lg font-semibold text-text-primary mt-10 mb-4">
+              <h3 className="text-lg font-semibold text-text-primary" style={{ marginTop: '2.5rem', marginBottom: '1rem' }}>
                 Tech Stack
               </h3>
-              <div className="space-y-4">
+              <div>
                 {Object.entries(profile.techStack).map(([category, techs]) => (
-                  <div key={category}>
-                    <p className="text-sm font-medium text-text-secondary mb-2">
+                  <div key={category} className="tech-stack-group">
+                    <p className="text-sm font-medium text-text-secondary" style={{ marginBottom: '0.5rem' }}>
                       {category}
                     </p>
-                    <div className="flex flex-wrap gap-2">
+                    <div className="tech-badges">
                       {techs.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 text-xs font-medium rounded-full border border-accent/30 text-accent bg-accent/5"
+                          className="text-xs font-medium rounded-full border border-accent/30 text-accent bg-accent/5"
+                          style={{ padding: '0.25rem 0.75rem' }}
                         >
                           {tech}
                         </span>

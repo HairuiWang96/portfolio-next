@@ -36,7 +36,7 @@ export function Header() {
           : "bg-transparent"
       )}
     >
-      <nav className="container-nav h-16 flex items-center justify-between">
+      <nav className="container-nav header-nav">
         <a
           href="#hero"
           className="text-xl font-bold bg-gradient-to-r from-accent-gradient-from to-accent-gradient-to bg-clip-text text-transparent"
@@ -45,7 +45,7 @@ export function Header() {
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="nav-links">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -64,11 +64,11 @@ export function Header() {
         </div>
 
         {/* Mobile toggle */}
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="mobile-toggle">
           <ThemeToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="h-10 w-10 flex items-center justify-center text-text-primary"
+            className="h-10 w-10 flex-center text-text-primary"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -78,8 +78,8 @@ export function Header() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-surface/95 backdrop-blur-md border-b border-border">
-          <div className="flex flex-col px-6 py-4 gap-4">
+        <div className="mobile-menu-wrapper bg-surface/95 backdrop-blur-md border-b border-border">
+          <div className="mobile-menu">
             {navLinks.map((link) => (
               <a
                 key={link.href}

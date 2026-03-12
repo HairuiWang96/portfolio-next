@@ -6,9 +6,30 @@ export interface Project {
   description: string;
   details: string;
   link?: string;
+  isMobile?: boolean;
 }
 
 export const projects: Project[] = [
+  {
+    title: "Gophr Web Tracking",
+    category: "React Project",
+    image: "/images/portfolio/web-tracking.png",
+    modalImage: "/images/portfolio/modals/m-web-tracking.png",
+    description: "Mobile-first delivery tracking app.",
+    details:
+      "A mobile-first delivery application with route management, GPS tracking, and signature/photo capture. Currently in testing and preparing to support hundreds of daily deliveries. Built with React.",
+    isMobile: true,
+  },
+  {
+    title: "GO-PILOT",
+    category: "Flutter Project",
+    image: "/images/portfolio/go-pilot.png",
+    modalImage: "/images/portfolio/modals/m-go-pilot.png",
+    description: "AI-powered load verification and compliance app.",
+    details:
+      "An AI-powered load verification and FMCSA compliance photo auditing app built in Flutter. Features all key UIs and workflows to streamline regulatory processes for the trucking industry.",
+    isMobile: true,
+  },
   {
     title: "Dashboard",
     category: "React Project",
@@ -62,7 +83,6 @@ export const projects: Project[] = [
     description: "Consumer-facing mobile application.",
     details:
       "A React Native mobile app connecting local businesses with their community. Features product browsing, ordering, and delivery tracking.",
-    link: "https://play.google.com/store/apps/details?id=app.gophr.gophrandroid",
   },
   {
     title: "Population Heat Map",
